@@ -87,8 +87,8 @@ def select_best_params_xgb(sorted_features):
         accuracy = accuracy_score(y_test, select_y_pred)
         print('accuracy', (thresh, select_data.shape[1], accuracy*100))
 
-# # ACCURACY OF SELECTED MODELS
-# select_best_params_xgb(thresholds)
+# ACCURACY OF SELECTED MODELS
+select_best_params_xgb(thresholds)
 
 
 # ACCURACY
@@ -125,7 +125,9 @@ def tuning_params():
     gsearch.fit(features_data, labels_data)
     print(gsearch.best_params_, gsearch.best_score_)
     return gsearch
-# tuning_params()
+
+
+tuning_params()
 
 
 ########################################################################################################################
@@ -165,10 +167,11 @@ def tuning_reg():
     grid_search.fit(features_data, labels_data)
     return grid_search.best_params_
 
-# print(tuning_reg())
 
-# # ACCURACY OF SELECTED MODELS
-# select_best_params_reg(thresholds_reg)
+print(tuning_reg())
+
+# ACCURACY OF SELECTED MODELS
+select_best_params_reg(thresholds_reg)
 
 y_pred_reg = reg.predict(x_test)
 score_reg = accuracy_score(y_test, y_pred_reg)
@@ -208,8 +211,8 @@ def select_best_params_svm(sorted_features):
         print('accuracy', (thresh, select_data.shape[1], accuracy*100))
 
 
-# # ACCURACY OF SELECTED MODELS
-# select_best_params_svm(thresholds_svm)
+# ACCURACY OF SELECTED MODELS
+select_best_params_svm(thresholds_svm)
 
 
 # TUNING SVM PARAMETERS
